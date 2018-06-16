@@ -1,8 +1,13 @@
 secret_words = [
     {
         word: "SNES",
-        image: "../assets/images/games/snes.jpg",
+        image: "assets/images/games/snes.jpg",
         description: "The Super Nintendo Game Console"
+    },
+    {
+        word: "MARIO",
+        image: "assets/images/games/mario.jpg",
+        description: "Mario the Italian plumber"
     }
 ];
 
@@ -60,6 +65,7 @@ function update_game_over_screen(win_or_lost_msg)
     game_text += secret_word.description;
     document.getElementById("game-text").textContent = game_text;
 
+    document.getElementById("game-image").src = secret_word.image;
 }
 
 // Check if user won the game
