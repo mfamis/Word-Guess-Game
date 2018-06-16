@@ -18,3 +18,15 @@ header {
 header h2 {
     font-size: 1em;
 }
+
+#main-content {
+    margin-top: 20px;
+}
+
+img {
+    width: 90%;
+}
+
+section {
+    background-color: white;
+}
