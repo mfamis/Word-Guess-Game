@@ -1,6 +1,7 @@
 body {
     background-image: url("../images/brick.png");
     background-size: 100px;
+    font-family: 'Press Start 2P', cursive;
 }
 
 header {
@@ -10,7 +11,6 @@ header {
     border-color: red;
     border-width: 10px;
     border-radius: 20px;
-    font-family: 'Press Start 2P', cursive;
     color: red;
     text-align: center;
 }
@@ -21,6 +21,7 @@ header h2 {
 
 #main-content {
     margin-top: 20px;
+    background-color: url("../images/pipe.jpg");
 }
 
 img {
@@ -29,4 +30,7 @@ img {
 
 section {
     background-color: white;
+    border: 30px solid transparent;
+    border-image: url("../images/pipe.jpg") 30 stretch;
+    color: red;
 }
