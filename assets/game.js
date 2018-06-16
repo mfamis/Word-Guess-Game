@@ -1,16 +1,3 @@
-secret_words = [
-    {
-        word: "SNES",
-        image: "assets/images/games/snes.jpg",
-        description: "The Super Nintendo Game Console"
-    },
-    {
-        word: "MARIO",
-        image: "assets/images/games/mario.jpg",
-        description: "Mario the Italian plumber"
-    }
-];
-
 var ATTEMPTS_PER_GAME = 10;
 
 // Game tracking variables
@@ -39,7 +26,7 @@ function reset_game()
 // Updates the document text with current game information
 function update_document_text()
 {
-    document.getElementById("wins-indicator").textContent = number_of_wins;
+    document.getElementById("wins-indicator").textContent = "Wins: " + number_of_wins;
 
     document.getElementById("guesses-indicator").textContent = number_of_attempts;
 
