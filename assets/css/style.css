@@ -30,6 +30,6 @@ img {
 section {
     background-color: white;
     border: 30px solid transparent;
-    border-image: url("../images/pipe.jpg") 30 stretch;
+    border-image: url("../images/box.png") 30 repeat;
     color: red;
 }
