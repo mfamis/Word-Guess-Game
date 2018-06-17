@@ -19,7 +19,14 @@ function reset_game()
     displayed_word = [];
     for (var i = 0; i < secret_word.word.length; i++)
     {
-        displayed_word.push("_");
+        if (secret_word.word[i] === " ")
+        {
+            displayed_word.push(" ");
+        }
+        else
+        {
+            displayed_word.push("_");
+        }
     }
 }
 
