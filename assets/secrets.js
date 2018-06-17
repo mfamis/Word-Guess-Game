@@ -32,7 +32,7 @@ secret_words = [
     },
     {
         word: "BUBSY",
-        image: "assets/images/games/bubsy.jpg",
+        image: "assets/images/games/bubsy.png",
         description: "Bubsy the cat. Shockingly into collecting yarn."
     },
 ];
