@@ -1,74 +1,86 @@
-var ATTEMPTS_PER_GAME = 10;
 
-// Game tracking variables
-var secret_word;
-var displayed_word = [];
-var number_of_attempts;
-var number_of_wins = 0;
-var used_letters = [];
+// Game State object
+var game_state = {
+    won_games: 0,
+    secret: {},
+    displayed_letters: [],
+    attempts_left: 0,
+    total_attempts_allowed: 10,
+    used_letters: [],
+    victory_text: "CONGRADULATIONS! You did it!",
+    defeat_text: "GAME OVER! You lost, loser!",
+    reset:                function() { alert("reset not implemented"); },
+    update_game_play:     function() { alert("update_game_play not implemented"); },
+    update_game_info:     function() { alert("update_game_info not implemented"); },
+    user_won_game:        function() { alert("user_won_game not implemented"); },
+    user_lost_game:       function() { alert("user_lost_game not implemented"); },
+    letter_used:          function() { alert("letter_used not implemented"); },
+    apply_letter:         function() { alert("apply_letter not implemented"); },
+    process_player_input: function() { alert("process_player_input not implemented"); },
+}
 
 // Resets the game with new word and game variables
-function reset_game()
+game_state.reset = function()
 {
-    number_of_attempts = ATTEMPTS_PER_GAME;
-    used_letters = [];
+    this.attempts_left = this.total_attempts_allowed;
+    this.used_letters = [];
 
     var word_index = Math.floor(Math.random() * secret_words.length);
-    secret_word = secret_words[word_index];
+    this.secret = secret_words[word_index];
 
-    displayed_word = [];
-    for (var i = 0; i < secret_word.word.length; i++)
+    this.displayed_letters = [];
+    for (var i = 0; i < this.secret.word.length; i++)
     {
-        if (secret_word.word[i] === " ")
+        if (this.secret.word[i] === " ")
         {
-            displayed_word.push(" ");
+            this.displayed_letters.push(" ");
         }
         else
         {
-            displayed_word.push("_");
+            this.displayed_letters.push("_");
         }
     }
 }
 
 // Updates the document text with current game information
-function update_document_text()
+game_state.update_game_play = function()
 {
-    document.getElementById("wins-indicator").textContent = "Wins: " + number_of_wins;
+    document.getElementById("wins-indicator").textContent = "Wins: " + this.won_games;
 
-    document.getElementById("guesses-indicator").textContent = number_of_attempts;
+    document.getElementById("guesses-indicator").textContent = this.attempts_left;
 
     var displayed_word_string = "";
-    for (var i = 0; i < displayed_word.length; i++)
+    for (var i = 0; i < this.displayed_letters.length; i++)
     {
-        displayed_word_string += displayed_word[i];
+        displayed_word_string += this.displayed_letters[i];
     }
     document.getElementById("word-entry").textContent = displayed_word_string;
 
     var used_letters_string = "";
-    for (var i = 0; i < used_letters.length; i++)
+    for (var i = 0; i < this.used_letters.length; i++)
     {
-        used_letters_string += used_letters[i] + " ";
+        used_letters_string += this.used_letters[i] + " ";
     }
     document.getElementById("guessed-letters").textContent = used_letters_string;
 }
 
 // Updates the game info section with
-function update_game_over_screen(win_or_lost_msg)
+game_state.update_game_info = function(win_or_lost_msg)
 {
     var game_text = win_or_lost_msg + " ";
-    game_text += secret_word.word + ": ";
-    game_text += secret_word.description;
+    game_text += this.secret.word + ": ";
+    game_text += this.secret.description;
     document.getElementById("game-text").textContent = game_text;
 
-    document.getElementById("game-image").src = secret_word.image;
+    document.getElementById("game-image").src = this.secret.image;
 }
 
 // Check if user won the game
-function user_won_game()
+game_state.user_won_game = function()
 {
-    for (var i = 0; i < displayed_word.length; i++)
+    for (var i = 0; i < this.displayed_letters.length; i++)
     {
-        if (displayed_word[i] === '_')
+        if (this.displayed_letters[i] === '_')
         {
             return false;
         }
@@ -77,30 +89,17 @@ function user_won_game()
 }
 
 // Check if user lost the game (what a loser!)
-function user_lost_game()
+game_state.user_lost_game = function()
 {
-    return number_of_attempts === 0;
+    return this.attempts_left === 0;
 }
 
 // Check if the letter has already been used
-function is_letter_used(letter)
+game_state.letter_used = function(letter)
 {
-    for (var i = 0; i < used_letters.length; i++)
+    for (var i = 0; i < this.used_letters.length; i++)
     {
-        if (letter === used_letters[i])
-        {
-            return true;
-        }
-    }
-    return false;
-}
-
-// Check if the letter is in the secret word
-function is_letter_in_secret_word(letter)
-{
-    for (var i = 0; i < secret_word.word.length; i++)
-    {
-        if (letter === secret_word.word[i])
+        if (letter === this.used_letters[i])
         {
             return true;
         }
@@ -109,14 +108,46 @@ function is_letter_in_secret_word(letter)
 }
 
 // Adds the correct guessed letter to the displayed word
-function add_letters_to_displayed_word(letter)
+game_state.apply_letter = function(letter)
 {
-    for (var i = 0; i < secret_word.word.length; i++)
+    var did_swap = false;
+    for (var i = 0; i < this.secret.word.length; i++)
     {
-        if (letter === secret_word.word[i])
+        if (letter === this.secret.word[i])
         {
-            displayed_word[i] = letter;
+            this.displayed_letters[i] = letter;
+            did_swap = true;
         }
+    }
+    return did_swap;
+}
+
+game_state.process_player_input = function(letter)
+{
+    if (!this.letter_used(letter))
+    {
+        this.used_letters.push(letter);
+
+        // Try to apply the letter to the secret.
+        // If fail, reduce the number of attempts left.
+        if (!this.apply_letter(letter))
+        {
+            this.attempts_left -= 1;
+        }
+
+        if (this.user_won_game())
+        {
+            this.won_games += 1;
+            this.update_game_info(this.victory_text);
+            this.reset();
+        }
+        else if (this.user_lost_game())
+        {
+            this.update_game_info(this.defeat_text);
+            this.reset();
+        }
+
+        this.update_game_play();
     }
 }
 
@@ -125,33 +156,9 @@ document.onkeyup = function(event)
 {
     var letter = event.key.toUpperCase();
     console.log("User entered: " + letter);
-    if (!is_letter_used(letter))
-    {
-        used_letters.push(letter);
-        if (is_letter_in_secret_word(letter))
-        {
-            add_letters_to_displayed_word(letter);
-        }
-        else
-        {
-            number_of_attempts -= 1;
-        }
-
-        if (user_won_game())
-        {
-            number_of_wins += 1;
-            update_game_over_screen("CONGRADULATIONS! You did it!");
-            reset_game();
-        }
-        else if (user_lost_game())
-        {
-            update_game_over_screen("GAME OVER! You lost, loser!");
-            reset_game();
-        }
-        update_document_text();
-    }
+    game_state.process_player_input(letter);
 }
 
 // Initialize the game and display
-reset_game();
-update_document_text();
+game_state.reset();
+game_state.update_game_play();
