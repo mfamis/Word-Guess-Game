@@ -1,3 +1,4 @@
+// lol don't look at these you cheater!
 secret_words = [
     {
         word: "SNES",
@@ -28,5 +29,10 @@ secret_words = [
         word: "PLAYSTATION",
         image: "assets/images/games/playstation.jpg",
         description: "The Sony Playstation game consule. Originally developed as a Nintendo product."
+    },
+    {
+        word: "BUBSY",
+        image: "assets/images/games/bubsy.jpg",
+        description: "Bubsy the cat. Shockingly into collecting yarn."
     },
 ];

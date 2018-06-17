@@ -45,6 +45,7 @@ function update_document_text()
     document.getElementById("guessed-letters").textContent = used_letters_string;
 }
 
+// Updates the game info section with
 function update_game_over_screen(win_or_lost_msg)
 {
     var game_text = win_or_lost_msg + " ";
