@@ -35,4 +35,29 @@ secret_words = [
         image: "assets/images/games/bubsy.png",
         description: "Bubsy the cat. Shockingly into collecting yarn."
     },
+    {
+        word: "LINK",
+        image: "assets/images/games/link.png",
+        description: "Link, the protagonist from the Legend of Zelda. Break pots, collect rupees."
+    },
+    {
+        word: "BOWSER",
+        image: "assets/images/games/bowser.png",
+        description: "Bowser, the antagonist of the Mario games. Steals princesses in order to marry them. Definitely not a feminist."
+    },
+    {
+        word: "GORDON FREEMAN",
+        image: "assets/images/games/gordonfreeman.png",
+        description: "Gordon Freeman, a theoretical physicist turned non-theoretical action hero in Half Life. Loves crowbars."
+    },
+    {
+        word: "MARIO KART",
+        image: "assets/images/games/mariokart.png",
+        description: "Mario Kart, a racing game with your favorite Nintendo characters. Watch as the blue shell crushes your dreams!"
+    },
+    {
+        word: "MEGAMAN",
+        image: "assets/images/games/megaman.png",
+        description: "MegaMan, the boy with a cannon as an arm!"
+    },
 ];
