@@ -60,4 +60,9 @@ secret_words = [
         image: "assets/images/games/megaman.png",
         description: "MegaMan, the boy with a cannon as an arm!"
     },
+    {
+        word: "SAMUS",
+        image: "assets/images/games/samus.png",
+        description: "Samus, the heroine of the metroid series! Comes in both human and ball configurations!"
+    },
 ];
