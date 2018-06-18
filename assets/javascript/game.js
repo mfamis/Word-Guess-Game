@@ -1,4 +1,9 @@
 
+var coin_sound = new Audio("assets/audio/smw_coin.wav");
+var hurt_sound = new Audio("assets/audio/loz_hurt.wav");
+var defeat_sound = new Audio("assets/audio/smb_defeat.wav");
+var victory_sound = new Audio("assets/audio/smb_victory.wav");
+
 // Game State object containing the state of the game
 // and functions used to process and update the game
 // when the player enters letters
@@ -146,19 +151,26 @@ game_state.process_player_input = function(letter)
 
         // Try to apply the letter to the secret.
         // If fail, reduce the number of attempts left.
-        if (!this.apply_letter(letter))
+        if (this.apply_letter(letter))
         {
+            coin_sound.play();
+        }
+        else
+        {
+            hurt_sound.play();
             this.attempts_left -= 1;
         }
 
         if (this.user_won_game())
         {
+            victory_sound.play();
             this.won_games += 1;
             this.update_game_info(this.victory_text);
             this.reset();
         }
         else if (this.user_lost_game())
         {
+            defeat_sound.play();
             this.update_game_info(this.defeat_text);
             this.reset();
         }
