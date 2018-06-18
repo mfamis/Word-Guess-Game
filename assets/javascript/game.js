@@ -167,12 +167,29 @@ game_state.process_player_input = function(letter)
     }
 }
 
+// Check if text is letter or number
+function is_letter_or_number(text)
+{
+    var letterNumber = /^[0-9a-zA-Z]$/;
+    if(text.match(letterNumber)) 
+    {
+        return true;
+    }
+    else
+    { 
+        return false; 
+    }
+}
+
 // Grab keystrokes and apply them to the game
 document.onkeyup = function(event)
 {
     var letter = event.key.toUpperCase();
     console.log("User entered: " + letter);
-    game_state.process_player_input(letter);
+    if (is_letter_or_number(letter))
+    { 
+        game_state.process_player_input(letter);
+    }
 }
 
 // Initialize the game and display
