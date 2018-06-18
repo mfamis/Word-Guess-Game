@@ -2,17 +2,17 @@
 secret_words = [
     {
         word: "SNES",
-        image: "assets/images/games/snes.jpg",
+        image: "assets/images/games/snes.png",
         description: "The Super Nintendo Game Console"
     },
     {
         word: "MARIO",
-        image: "assets/images/games/mario.jpg",
+        image: "assets/images/games/mario.png",
         description: "Mario the Italian plumber. He travels through pipes."
     },
     {
         word: "SONIC",
-        image: "assets/images/games/sonic.jpg",
+        image: "assets/images/games/sonic.png",
         description: "Sonic the Hedgehog. He likes collecting coins."
     },
     {
@@ -22,12 +22,12 @@ secret_words = [
     },
     {
         word: "GENESIS",
-        image: "assets/images/games/genesis.jpeg",
+        image: "assets/images/games/genesis.png",
         description: "The Sega Genesis game consule. Marketed to adults rather than kids."
     },
     {
         word: "PLAYSTATION",
-        image: "assets/images/games/playstation.jpg",
+        image: "assets/images/games/playstation.png",
         description: "The Sony Playstation game consule. Originally developed as a Nintendo product."
     },
     {

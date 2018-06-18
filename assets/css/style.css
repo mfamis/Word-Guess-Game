@@ -28,11 +28,11 @@ img {
 }
 
 section {
-    background-color: white;
+    background-color: #ffa32b;
     border-style: solid;
     border-width: 30px;
     border-image: url("../images/box.png") 30 repeat;
-    color: red;
+    color: black;
 }
 
 #spacer {
