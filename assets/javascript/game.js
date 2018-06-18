@@ -1,5 +1,7 @@
 
-// Game State object
+// Game State object containing the state of the game
+// and functions used to process and update the game
+// when the player enters letters
 var game_state = {
     won_games: 0,
     secret: {},
@@ -42,7 +44,10 @@ game_state.reset = function()
     }
 }
 
-// Updates the document text with current game information
+// Updates the document text with current game 
+// play section with the number of wins, remaining
+// attempts, the correctly guessed letters and the
+// letters that have been used so far.
 game_state.update_game_play = function()
 {
     document.getElementById("wins-indicator").textContent = "Wins: " + this.won_games;
@@ -64,7 +69,9 @@ game_state.update_game_play = function()
     document.getElementById("guessed-letters").textContent = used_letters_string;
 }
 
-// Updates the game info section with
+// Updates the game info section with a victory or
+// defeat message and displays the secret word along
+// with a description and image of the character.
 game_state.update_game_info = function(win_or_lost_msg)
 {
     var game_text = win_or_lost_msg + " ";
@@ -75,7 +82,8 @@ game_state.update_game_info = function(win_or_lost_msg)
     document.getElementById("game-image").src = this.secret.image;
 }
 
-// Check if user won the game
+// Check if user won the game by seeing if there
+// are any remaining blanks/underscores
 game_state.user_won_game = function()
 {
     for (var i = 0; i < this.displayed_letters.length; i++)
@@ -107,7 +115,11 @@ game_state.letter_used = function(letter)
     return false;
 }
 
-// Adds the correct guessed letter to the displayed word
+// Attempts to apply the guessed letter
+// If the letter was correctly guessed,
+// returns true and updates the displayed letters
+// If the letter isn't in the secret word,
+// returns false
 game_state.apply_letter = function(letter)
 {
     var did_swap = false;
@@ -122,6 +134,10 @@ game_state.apply_letter = function(letter)
     return did_swap;
 }
 
+// Processes the players guess, checks if the letter
+// was already used and, if so, tries to apply it.
+// After that, determines if the player has already won
+// or lost the game and updates the game information.
 game_state.process_player_input = function(letter)
 {
     if (!this.letter_used(letter))
