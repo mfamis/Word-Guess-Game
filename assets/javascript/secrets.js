@@ -65,4 +65,9 @@ secret_words = [
         image: "assets/images/games/samus.png",
         description: "Samus, the heroine of the metroid series! Comes in both human and ball configurations!"
     },
+    {
+        word: "CRASH BANDICOOT",
+        image: "assets/images/games/crashbandicoot.png",
+        description: "Crash Bandicoot, the marsupial protagonist. Runs from rolling boulders and wears masks."
+    },
 ];
