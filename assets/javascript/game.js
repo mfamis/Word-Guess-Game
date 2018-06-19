@@ -1,8 +1,12 @@
+// Special thanks to The Mushroom Kingdon page for these sound files!
+// See: http://www.themushroomkingdom.net
+var coin_sound = new Audio("https://themushroomkingdom.net/sounds/wav/smw/smw_coin.wav");
+var defeat_sound = new Audio("https://themushroomkingdom.net/sounds/wav/smb/smb_mariodie.wav");
+var victory_sound = new Audio("https://themushroomkingdom.net/sounds/wav/smb/smb_stage_clear.wav");
 
-var coin_sound = new Audio("assets/audio/smw_coin.wav");
-var hurt_sound = new Audio("assets/audio/loz_hurt.wav");
-var defeat_sound = new Audio("assets/audio/smb_defeat.wav");
-var victory_sound = new Audio("assets/audio/smb_victory.wav");
+// Special thanks to HelpTheWretched for this sound file!
+// See HelpTheWretched's site at: http://www.ZeldaSounds.com
+var hurt_sound = new Audio("http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Hurt.wav");
 
 // Game State object containing the state of the game
 // and functions used to process and update the game
