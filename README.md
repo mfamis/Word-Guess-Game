@@ -14,3 +14,12 @@ There are two Javascript files used in this game: game.js and secrets.js. game.j
 
 ## Want to use this repo?
 Go right ahead! This project is subject to the MIT License, which means it is yours to modify and distribute. It is provided as-is, so if something goes wrong, you get to fix it!
+
+## Acknowledgements
+Audio files are provided by the generous sources below (be sure to check them out!):
+
+Special thanks to The Mushroom Kingdon page for the Mario sounds!
+See: http://www.themushroomkingdom.net
+
+Special thanks to HelpTheWretched for this sound file!
+See HelpTheWretched's site at: http://www.ZeldaSounds.com
