@@ -21,5 +21,5 @@ Audio files are provided by the generous sources below (be sure to check them ou
 Special thanks to The Mushroom Kingdon page for the Mario sounds!
 See: http://www.themushroomkingdom.net
 
-Special thanks to HelpTheWretched for this sound file!
+Special thanks to HelpTheWretched for the Zelda sound file!
 See HelpTheWretched's site at: http://www.ZeldaSounds.com
