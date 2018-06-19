@@ -11,3 +11,6 @@ After guessing or not guessing the secret word or phrase, the answer will be rev
 ## How it works
 This game uses HTML, CSS, and Javascript to run. The Javascript only uses built in functions, and is designed around a game state object. Player input is intercepted via key presses (binding game functions to the document.keyup event).
 There are two Javascript files used in this game: game.js and secrets.js. game.js includes all of the game runtime behavior. secret.js has all of the possible secret words and phrases to be guessed by the player (no peaking!).
+
+## Want to use this repo?
+Go right ahead! This project is subject to the MIT License, which means it is yours to modify and distribute. It is provided as-is, so if something goes wrong, you get to fix it!
