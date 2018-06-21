@@ -52,3 +52,17 @@ footer {
 footer p {
     margin-top: 40px;
 }
+
+#hidden-input {
+    position: absolute;
+    width: 0;
+    opacity: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    #hidden-input {
+        width: 100%;
+        top: 0; /* Header Height */
+        bottom: 70px; /* Footer Height */
+    }
+}
