@@ -197,8 +197,7 @@ function is_letter_or_number(text)
     }
 }
 
-// Grab keystrokes and apply them to the game
-document.onkeyup = function(event)
+function game_input(event)
 {
     var letter = event.key.toUpperCase();
     console.log("User entered: " + letter);
@@ -207,6 +206,11 @@ document.onkeyup = function(event)
         game_state.process_player_input(letter);
     }
 }
+
+// Grab keystrokes and apply them to the game
+document.onkeyup = game_input;
+
+document.getElementById("hidden-input").addEventListener("keyup", game_input); 
 
 // Initialize the game and display
 game_state.reset();
