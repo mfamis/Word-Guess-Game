@@ -209,8 +209,7 @@ function game_input(event)
 
 // Grab keystrokes and apply them to the game
 document.onkeyup = game_input;
-
-document.getElementById("hidden-input").addEventListener("keydown", game_input); 
+document.addEventListener("keydown input", game_input);
 
 // Initialize the game and display
 game_state.reset();
