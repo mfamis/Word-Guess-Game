@@ -63,18 +63,10 @@ game_state.update_game_play = function()
 
     document.getElementById("guesses-indicator").textContent = this.attempts_left;
 
-    var displayed_word_string = "";
-    for (var i = 0; i < this.displayed_letters.length; i++)
-    {
-        displayed_word_string += this.displayed_letters[i];
-    }
+    var displayed_word_string = this.displayed_letters.join("");
     document.getElementById("word-entry").textContent = displayed_word_string;
 
-    var used_letters_string = "";
-    for (var i = 0; i < this.used_letters.length; i++)
-    {
-        used_letters_string += this.used_letters[i] + " ";
-    }
+    var used_letters_string = this.used_letters.join(" ");
     document.getElementById("guessed-letters").textContent = used_letters_string;
 }
 
@@ -95,33 +87,19 @@ game_state.update_game_info = function(win_or_lost_msg)
 // are any remaining blanks/underscores
 game_state.user_won_game = function()
 {
-    for (var i = 0; i < this.displayed_letters.length; i++)
-    {
-        if (this.displayed_letters[i] === '_')
-        {
-            return false;
-        }
-    }
-    return true;
+    return (this.displayed_letters.indexOf("_") === -1);
 }
 
 // Check if user lost the game (what a loser!)
 game_state.user_lost_game = function()
 {
-    return this.attempts_left === 0;
+    return (this.attempts_left === 0);
 }
 
 // Check if the letter has already been used
 game_state.letter_used = function(letter)
 {
-    for (var i = 0; i < this.used_letters.length; i++)
-    {
-        if (letter === this.used_letters[i])
-        {
-            return true;
-        }
-    }
-    return false;
+    return (this.used_letters.indexOf(letter) !== -1)
 }
 
 // Attempts to apply the guessed letter
